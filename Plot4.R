@@ -43,7 +43,8 @@ plot4 <- function() {
   plot(pdat$DateTime,pdat$Sub_m1, type="l", xlab="", ylab="Energy sub metering")
   lines(pdat$DateTime,pdat$Sub_m2,col="red")
   lines(pdat$DateTime,pdat$Sub_m3,col="blue")
-  legend("topright", col=c("black","red","blue"), c("Sub_metering_1      ","Sub_metering_2      ", "Sub_metering_3      "),lty=c(1,1), bty="c", cex=.4) 
+  legend("topright",  xjust = 1, yjust = 1, c("Sub_metering_1      ","Sub_metering_2      ", "Sub_metering_3      "), cex=.35, col=c("black","red","blue"), lty = c(1,1), bty = 'n') 
+  ## legend placement inconsistent
   
   #create plot 4
   plot(pdat$DateTime,pdat$Gl_react_pwr, type="l", xlab="datetime", ylab="Global_reactive_power")
@@ -55,3 +56,4 @@ plot4 <- function() {
 
 ## create plots 4 the compound plots
 plot4()
+
