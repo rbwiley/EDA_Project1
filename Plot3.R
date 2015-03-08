@@ -33,10 +33,12 @@ pdat <- transform(pdat, DateTime=as.POSIXct(paste(PwrDate, PwrTime)), "%d/%m/%Y 
 
 ## plot 3 the submeter timeseries
 plot3 <- function() {
-  plot(pdat$DateTime,pdat$Sub_m1, type="l", xlab="", ylab="Energy Sub Metering")
+  par(mar = c(4.1, 4.1, 2.1, 1.1))
+  plot(pdat$DateTime,pdat$Sub_m1, type="l", xlab="", ylab="Energy sub metering")
   lines(pdat$DateTime,pdat$Sub_m2,col="red")
   lines(pdat$DateTime,pdat$Sub_m3,col="blue")
-  legend("topright", col=c("black","red","blue"), c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  "),lty=c(1,1), bty="n", cex=.5)
+  ## extra space to keep legend from collapsing rt and cutting off labels
+  legend("topright", col=c("black","red","blue"), c("Sub_metering_1       .","Sub_metering_2       .", "Sub_metering_3       ."), lty = c(1,1), bty = "c", cex = .4)
   
   # create plot file
   dev.copy(png, file="plot3.png", width=480, height=480)
